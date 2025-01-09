@@ -22,6 +22,49 @@ Before using the Makefile, ensure the following are installed and configured on 
 Use the provided `Makefile` to manage Docker containers and perform actions like building the application, running
 tests, and executing commands within the containerized environment.
 
+
+
+---
+
+## Quick Start
+
+Follow these steps to quickly set up and run the project:
+
+1. **Build Docker images**
+   ```bash
+   make build
+   ```
+
+2. **Start Docker containers**
+   ```bash
+   make up
+   ```
+
+3. **Install Composer dependencies**
+   ```bash
+   make composer args="install"
+   ```
+
+4. **Set up the environment file**
+   ```bash
+   cp .env.example .env
+   ```
+
+5. **Add environment variable values**  
+   Open the `.env` file and configure the necessary environment variables as per your setup.
+
+6. **Set file and directory permissions**
+   ```bash
+   sudo chown -R user:user app/
+   sudo chmod -R 755 database/
+   sudo chmod -R 755 storage/
+   ```
+
+7. **Run database migrations**
+   ```bash
+   make artisan args="migrate"
+   ```
+
 ### Commands
 
 - **Build Docker images**
@@ -50,13 +93,13 @@ tests, and executing commands within the containerized environment.
   ```bash
   make composer args="install"
   ```
-  Runs Composer commands using the `nyt-api_nginx` container.
+  Runs Composer commands using the `nginx` container.
 
 - **Run PHPUnit tests**
   ```bash
   make test
   ```
-  Executes PHPUnit tests from the `nyt-api_nginx` container.
+  Executes PHPUnit tests from the `nginx` container.
 
 - **Run Laravel Artisan commands**
   ```bash
@@ -66,7 +109,7 @@ tests, and executing commands within the containerized environment.
   ```bash
   make artisan args="migrate"
   ```
-  Executes Laravel Artisan commands using the `nyt-api_api_nginx` container.
+  Executes Laravel Artisan commands using the `nginx` container.
 
 - **Open a shell in the Nginx container**
   ```bash

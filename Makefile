@@ -22,6 +22,9 @@ composer:
 artisan:
 	docker exec --workdir /var/www/html/nyt-api -it nginx php artisan $(args)
 
+npm:
+	docker exec --workdir /var/www/html/nyt-api -it nginx npm install
+
 # Run Tests
 test:
 	docker exec --workdir /var/www/html/nyt-api -it nginx php artisan test
